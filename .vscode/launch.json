@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Shattered Oath",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/shattered_oath.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopAtEntry": false,
+            "unknownBreakpointHandling": "stop",
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "C:/msys64/mingw64/bin;${env:PATH}"
+                }
+            ],
+            "setupCommands": [
+                {
+                    "description": "Enable GDB pretty printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Pause at the start of the game's SDL callback",
+                    "text": "-break-insert -f -t SDL_AppInit",
+                    "ignoreFailures": false
+                }
+            ],
+            "preLaunchTask": "Build Shattered Oath (Debug)"
+        }
+    ]
+}
